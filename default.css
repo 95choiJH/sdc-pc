@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
+/* CSS RESET */
+html,body {width: 100%; height: 100%; margin: 0; padding: 0;}
+h1,h2,h3,h4,ul,li,a,em,p,figure,dl,dd {margin: 0; padding: 0; list-style: none; text-decoration: none; font-style: normal; font-size: 100%; font-weight: normal; color: #fff;}
+em {color: #000;}
+img {vertical-align: top;}
+.hidden {display: block; text-indent: -9999em;}
+.clear::after {display: block; content: ''; clear: both;}
+
+/* COMMON ELEMENTS - TYPOGRAPHY */
+body {line-height: 1; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 300; color: #fff; overflow-x: hidden;}
+
+/* ANIMATION*/
+@keyframes header_ani {
+    0% {left: -90px;}
+    100% {left: 0;}
+}
+
+@keyframes opacity {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes startBar {
+    0% {width: 0%;}
+    100% {width: 100%;}
+}
+
+/* HEADER */
+header .logo a {display: block; width: 90px; height: 80px; background: url(images/logo_sdc.png) no-repeat;}
+header .sub_menu a:hover {color: #fff;}
+header .menu_etc li:hover span, .header_menu_open .menu_etc .menu_side_open:hover span {display: block;}
+header .login a{background: url(images/icon_etc_login.png) no-repeat center;}
+header .lang a{background: url(images/icon_etc_language.png) no-repeat center;}
+
+.header_static {z-index: 1; position: absolute; width: 100%;}
+.header_static .logo {float: left;}
+.header_static .menu_main {float: left; height: 80px; line-height: 90px;}
+.header_static nav ul {height: 100%;}
+.header_static nav ul li {float: left; height: 100%;}
+.header_static .menu_main ul li {padding: 0 18px;}
+.header_static .menu_main .menu_main_title {display: block; position: relative; height: 100%; font-size: 15px; font-weight: 300;}
+.header_static .menu_main .menu_main_title::after {display: block; position: absolute; content: ''; left: 50%; right: 50%; bottom: 0; height: 1px; background: #fff; transition: 0.2s;}
+.header_static .menu_main > ul > li:hover .menu_main_title::after {left: 0; right: 0;}
+.header_static .sub_menu {display: none; top: 100%; line-height: 62px;}
+.header_static .sub_menu a {line-height: 62px; font-size: 13px; font-weight: 400; color: #777;}
+.header_static .menu_main ul li:hover .sub_menu, .header_static .sub_menu ul li:hover .Hotels_subMenu {display: block; position: absolute; left: 0; right: 0; background: rgba(30,29,36,.9);}
+.header_static .Seoul_Dragon_City_menu ul {padding-left: 90px;}
+.header_static .Hotels_menu span {position: relative; color: #777;}
+.header_static .Hotels_menu span::after {position: absolute; content: ''; height: 1px; left: 50%; right: 50%; bottom: -12px; background: #af6e52; transition: 0.2s;}
+.header_static .Hotels_menu ul {padding-left: 278px;}
+.header_static .Hotels_menu ul li:hover span {color: #fff;}
+.header_static .Hotels_menu ul li:hover span::after {left: 0; right: 0;}
+.header_static .Hotels_menu .Hotels_subMenu {display: none; top: 100%; line-height: 42px;}
+.header_static .dining .Dining_menu ul {padding-left: 370px;}
+.header_static .Sky_Kingdom_menu ul {padding-left: 458px;}
+.header_static .Convention_Meeting_menu > ul {padding-left: 446px;}
+.header_static .Convention_Meeting_menu span {float: left; color: #af6e52;}
+.header_static .Convention_Meeting_menu div {float: left; height: 100%; margin-left: 15px;}
+.header_static .menu_membership .Membership_menu ul {padding-left: 623px;}
+.header_static .menu_etc {float: right; position: relative; height: 22px; padding-top: 30px;}
+.header_static .menu_etc li, .header_menu_open .menu_etc .menu_side_open {position: relative; width: 48px; padding-bottom: 15px;}
+.header_static .menu_etc .lang {margin-right: 27px;}
+.header_static .menu_etc .menu_side {display: none}
+.header_static .menu_etc li a, .header_menu_open .menu_etc .menu_side_open a {display: block; width: 100%; height: 100%; text-align: center; font-size: 12px;}
+.header_static .menu_etc span, .header_menu_open .menu_etc .menu_side_open span {display: none; position: absolute; left:0; right: 0; top: 100%; margin: 0 -10px; padding: 10px; background: #fff; border-radius: 2px; letter-spacing: .04em; font-weight: 400; color: #111}
+.header_static .menu_etc span::before, .header_menu_open .menu_etc .menu_side_open span::before {display: block; position: absolute; content: ''; left: 50%; top: -10px; border-width: 5px; border-style: solid; border-color: transparent transparent #fff transparent; transform: translateX(-50%);}
+.header_static .menu_etc .book {display: block;}
+.header_static .book a {background: url(images/icon_etc_book.png) no-repeat center;}
+.header_static .book span {margin: 0 -25px;}
+
+.header_scroll {z-index: 100; position: fixed; width: 90px; height: 100%; top: 0; background: #1e1d24; border-right: 1px solid #29292f; animation: header_ani .4s; transition: left .4s;}
+.header_scroll .logo {float: inherit; position: relative; height: 90px; border-bottom: 1px solid #29292f;}
+.header_scroll .menu_main {display: none;}
+.header_scroll .menu_etc {float: inherit;}
+.header_scroll .menu_etc li:not(.menu_side_open) {width: 90px; height: 90px; border-bottom: 1px solid #29292f; box-sizing: border-box;}
+.header_scroll .menu_etc .menu_button {position: absolute; top: 64%; border: none;}
+.header_scroll .menu_etc li.top {position: absolute; height: 140px; bottom: 0;}
+.header_scroll .menu_etc .menu_side_open {display: none;}
+.header_scroll .menu_etc .menu_side a {display: block; position: relative; height: 100%; text-align: center; overflow: hidden;}
+.header_scroll .menu_etc .menu_side a::after {z-index: -1; position: absolute; content: ''; width: 100%; height: 100%; left: 0; top: 100%; background: #18171d; transition: .4s;}
+.header_scroll .menu_etc .menu_side a:hover::after {top: 0;}
+.header_scroll .menu_etc .menu_side span {display: block; padding: 25px 20px; line-height: 20px; letter-spacing: .04em; font-size: 14px; font-weight: 300; color: #fff;}
+.header_scroll .menu_etc .menu_button .menu_icon {position: absolute; width: 28px; height: 21px; left: 50%; top: 20px; padding: 0; background-image: linear-gradient(180deg, #fff 0, #fff 3px, #1e1d24 3px, #1e1d24 9px, #fff 9px, #fff 12px, #1e1d24 12px, #1e1d24 18px, #fff 18px, #fff 21px); transform: translateX(-50%);}
+.header_scroll .menu_etc .menu_button .menu_icon::after {position: absolute; content: ''; width: 30%; height: 3px; left: 0; top: 18px; background: #1e1d24;}
+.header_scroll .menu_etc .menu_button .menu_icon_tt {padding: 55px 20px 15px;}
+.header_scroll .menu_etc .top span {padding: 45px 20px;}
+.header_scroll .menu_etc .top a:hover span::after {height: 35%; background: #fff;}
+.header_scroll .menu_etc .top a::after {display: none;}
+.header_scroll .menu_etc .top span::after {position: absolute; content: ''; width: 1px; height: 45%; left: 50%; bottom: 0; background: #494848; transform: translateX(50%); transition: height .4s;}
+
+.header_menu_open .menu_main {display: block; position: fixed; width: 780px; height: 100%; top: 0; left: 91px; background: #1e1d24; animation: opacity .4s; transition: .4s; overflow-x: hidden; overflow-y: auto; }
+.header_menu_open .menu_main::-webkit-scrollbar {width: 17px;}
+.header_menu_open .menu_main::-webkit-scrollbar-thumb {background: #696870;}
+.header_menu_open .menu_main > ul {width: 700px; margin: 180px 100px 150px;}
+.header_menu_open .menu_main > ul > li {float: left; width: 350px;}
+.header_menu_open .menu_main .menu_main_title {display: block; line-height: 24px; font-size: 20px; font-weight: 400; }
+.header_menu_open .menu_main .sub_menu {padding-top: 12px;}
+.header_menu_open .menu_main .sub_menu li {float: inherit;}
+.header_menu_open .sub_menu a, .header_menu_open .sub_menu span {line-height: 30px; font-size: 14px; font-weight: 300; color: #777;}
+.header_menu_open .sub_menu span {color: #af6e52;}
+.header_menu_open .Hotels_subMenu ul {margin-bottom: 15px;}
+.header_menu_open .Hotels_subMenu ul li:first-child {display: none;}
+.header_menu_open .Hotels_subMenu ul li a, .header_menu_open .Convention_Meeting_menu div ul li a {text-transform: uppercase; line-height: 28px; font-size: 12px; font-weight: 400;}
+.header_menu_open .Hotels_subMenu li a::before, .header_menu_open .Convention_Meeting_menu div ul li a::before {content: '-'; padding-right: 8px;}
+.header_menu_open .dining {margin-top: -370px;}
+.header_menu_open .dining .Dining_menu {display: none}
+.header_menu_open .sky_kingdom {margin-top: -316px;;}
+.header_menu_open .convention_meeting {margin: -130px 0 30px;}
+.header_menu_open .Convention_Meeting_menu > ul > li {margin-bottom: 15px;}
+.header_menu_open .Convention_Meeting_menu span {display: block; width: 100%;}
+.header_menu_open .Convention_Meeting_menu div {float: inherit;}
+.header_menu_open .wedding {clear: both;}
+.header_menu_open .special_event {margin-top: -187px;}
+.header_menu_open .menu_membership {margin-top: -133px;}
+.header_menu_open .menu_etc .menu_side_open {display: block; position: fixed; height: 22px; left: 750px; top: 35px;}
+.header_menu_open .menu_etc .lang {left: 790px;}
+.header_menu_open .menu_etc .menu_button a::after {top: 0;}
+.header_menu_open .menu_etc .menu_button .menu_icon::before {content: ''; height: 3px; background: #fff;}
+
+
+/* MAIN SLIDE */
+.main_slide {position: relative; width: 100%; height: 970px; left: 0; text-align: center; transition: 0.6s;}
+.main_slide .main_slideImg {height: 100%;}
+.main_slide .main_slideImg div {position: absolute; width: 100%; height: 970px; transition: 0.3s; opacity: 0;}
+.main_slide .main_slideImg .active {opacity: 1;}
+.main_slide .main_slideImg .slide_Seoul_Dragon_City {background: url(images/bg_main_banner_1.jpg) no-repeat top/cover;}
+.main_slide .main_slideImg .slide_Grand_Mercure {background: url(images/bg_main_banner_2.jpg) no-repeat top/cover;}
+.main_slide .main_slideImg .slide_Novotel_Suites {background: url(images/bg_main_banner_3.jpg) no-repeat top/cover;}
+.main_slide .main_slideImg .slide_Novotel {background: url(images/bg_main_banner_4.jpg) no-repeat top/cover;}
+.main_slide .main_slideImg .slide_Ibis_Styles {background: url(images/bg_main_banner_5.jpg) no-repeat top/cover;}
+.main_slide .main_slideImg h1 {position: absolute; width: 100%; top: 50%; margin-top: -132px; letter-spacing: .1em; font-size: 32px;}
+.main_slide .slide_duration_bar {position: absolute; width: 80%; height: 1px; left: 50%; top: 50%; background: rgba(255,255,255,.2); transform: translateX(-50%);}
+.main_slide .slide_duration_bar .startBar {display: block; height: 1px; background: #fff; animation: startBar 5.12s linear infinite;}
+.main_slide .pager {display: flex; position: absolute; width: 100%; height: 160px; bottom: 0;}
+.main_slide .pager span {align-self: flex-end; width: 20%; height: 100px; background-color: rgba(41, 40, 49, 0.9); background-repeat: no-repeat; background-position: center; cursor: pointer; transition: 0.35s;}
+.main_slide .pager .active {height: 160px; background-color: rgba(41, 40, 49)}
+.main_slide .pager .pager_Seoul_Dragon_City {background-image: url(images/logo_hotel_seouldragoncity.png);}
+.main_slide .pager .active.pager_Seoul_Dragon_City {background-image: url(images/logo_hotel_seouldragoncity_v2.png);}
+.main_slide .pager .pager_Grand_Mercure {background-image: url(images/logo_hotel_grand_mercure.png); background-size: auto 50px;}
+.main_slide .pager .acitve.pager_Grand_Mercure {background-image: url(images/logo_hotel_grand_mercure_v2.png); background-size: auto 50px;}
+.main_slide .pager .pager_Novotel_Suites {background-image: url(images/logo_hotel_novotel_suites_v2.png); background-size: auto 28px;}
+.main_slide .pager .active.pager_Novotel_Suites {background-image: url(images/logo_hotel_novotel_suites_v3.png); background-size: auto 28px;}
+.main_slide .pager .pager_Novotel {background-image: url(images/logo_hotel_novotel_v2.png); background-size: auto 28px;}
+.main_slide .pager .active.pager_Novotel {background-image: url(images/logo_hotel_novotel_v3.png); background-size: auto 28px;}
+.main_slide .pager .pager_Ibis_Styles {background-image: url(images/logo_hotel_ibis.png); background-size: auto 36px;}
+.main_slide .pager .active.pager_Ibis_Styles {background-image: url(images/logo_hotel_ibis_v2.png); background-size: auto 36px;}
+
+/* MEMBERSHIP */
+#membership {height: 1000px; background: url(images/bg_main_membership.jpg) no-repeat top; text-align: center;}
+#membership h2 {border-bottom: 1px solid rgba(255,255,255,.2); line-height: 140px; letter-spacing: .06em; font-size: 26px; font-weight: 700;}
+#membership p {text-align: center; line-height: 32px; font-size: 16px; color: #111; opacity: .8;}
+#membership span {display: block; position: relative; text-align: left; line-height: 52px; font-size: 16px; font-weight: 300; color: #111;}
+#membership .membership_wrap {position: relative; height: 859px; padding-top: 120px; box-sizing: border-box;}
+#membership .membership_wrap .membership_item {position: absolute; width: 100%; transition: .45s; opacity: 0;}
+#membership .membership_wrap .active {z-index: 1; opacity: 1;}
+#membership .membership_item .membership_title {display: block; margin-bottom: 18px; font-size: 18px; color: #fff; opacity: 1;}
+#membership .membership_item h3 {display: inline-block; margin-bottom: 85px; font-size: 46px; font-weight: 300;}
+#membership .membership_card {position: relative; height: 229px; transition: .1s; opacity: .1;}
+#membership .membership_card figure {position: absolute; left: 50%; border-radius: 6px; box-shadow: 2px 0 3px rgba(0,0,0,.2);}
+#membership .membership_card figure:after {position: absolute; content: ''; height: 61px;  left: 0; right: 0; top: 100%; background: url('images/bg_main_card_shadow.jpg') no-repeat;}
+#membership .membership_card .card_left {z-index: 3; transform: translateX(calc(-50% - 30px)); transition: 1.25s; transition-delay: .7s;}
+#membership .membership_card .card_middle {z-index: 2; transform: translateX(-50%);}
+#membership .membership_card .card_right {z-index: 1; transform: translateX(calc(-50% + 64px)); transition: 1.25s .7s;}
+#membership .membership_card figure img {width: 268px;}
+#membership .membership_card_button {display: inline-block; margin-top: 40px;}
+#membership .membership_card_button a {float: left; position: relative; width: 180px; height: 52px; margin: 0 10px; padding: 0 30px; box-sizing: border-box; overflow: hidden;}
+#membership .membership_card_button .detail {border: 1px solid #111;}
+#membership .membership_card_button .join {border: 1px solid #af6e52;}
+#membership .membership_card_button a::before {position: absolute; content: ''; width: 100%; height: 100%; left: 0; top: 100%; transition: .35s;}
+#membership .membership_card_button .detail::before {background: #111;}
+#membership .membership_card_button .join::before {background: #af6e52;}
+#membership .membership_card_button a:hover::before {top: 0;}
+#membership .membership_card_button a:hover span {color: #fff;}
+#membership .membership_card_button a:hover span::before, #membership .membership_card_button a:hover span::after {right: -10px; background: #fff;}
+#membership .membership_card_button span::before, #membership .membership_card_button span::after {display: block; position: absolute; content: ''; height: 1px; right: 0; top: 63%; transition: .35s;}
+#membership .membership_card_button span::before {width: 25px;}
+#membership .membership_card_button span::after {width: 10px; margin-top: -4px; margin-right: -1px; transform: rotate(45deg); color: #af6e52}
+#membership .detail span::before, #membership .detail span::after {background: #111;}
+#membership .join span::before, #membership .join span::after {background: #bf8b75;}
+#membership .membership_button {z-index: 2; position: absolute; width: 68px; height: 68px; left: 50%; top: 0; cursor: pointer;}
+#membership .membership_button::before {position: absolute; content: ''; width: 26px; height: 26px; left: 50%; top: 50%; margin-top: 30px; border-right: 2px solid #fff; border-top: 2px solid #fff;}
+#membership .detail {border: 1px solid #111;}
+#membership .join {border: 1px solid #af6e52;}
+#membership .membership_button > span {position: absolute; width: 170px; height: 60px; margin-top: 40px; opacity: .6;}
+#membership .membership_button span {text-align: center; line-height: 26px; letter-spacing: .06em; font-size: 20px; font-weight: 300; color: #fff;}
+#membership .join span {color: #af6e52;}
+#membership .membership_next {margin-left: 271px;}
+#membership .membership_prev {margin-left: -337px;}
+#membership .membership_next::before {transform: translate(-50%, -50%) rotate(45deg);}
+#membership .membership_prev::before {transform: translate(-50%, -50%) rotate(-135deg);}
+#membership .membership_prev > span {left: -273px}
+#membership .membership_next > span {margin-left: 169px}
+
+/* SPECIAL EVENTS */
+#special_events {position: relative; height: 1170px; padding-top: 80px; background: #eff1f5; text-align: center; overflow: hidden;}
+#special_events p {letter-spacing: .04em; font-size: 16px; color: #111; opacity: .4;}
+#special_events h2 {padding-top: 12px; letter-spacing: .12em; font-size: 36px; font-weight: 400; color: #111;}
+#special_events .events {position: absolute; height:720px; left: calc(50% - 1540px); padding-top: 75px; transition: .35s;}
+#special_events .event_item {float: left; width: 440px;}
+#special_events .event_item a {display: block; position: relative; box-shadow: 5px 5px 10px rgba(0,0,0,.2);} 
+#special_events .event_item a figure {position: relative;}
+#special_events .event_item a figure figcaption {position: absolute; width: 40px; height: 40px; top: 0; margin: 10px 0 0 20px;}
+#special_events .event_item a figure figcaption span {display: block;}
+#special_events .event_item a figure .dining {background: url(images/icon_special_dining_package.png);}
+#special_events .event_item a figure .room {background: url(images/icon_special_room_package.png);}
+#special_events .event_item a .event_item_bg {position: absolute; width: 100%; bottom: 0; padding: 100% 30px 20px; background: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.1) 60%, rgba(0,0,0,.8)); box-sizing: border-box;}
+#special_events .event_item a .event_item_bg span {display: block; padding: 5px 0; text-align: left; letter-spacing: .04em; font-size: 14px; font-weight: 400; color: #fff;}
+#special_events .event_item a .event_item_bg span::before {content:'-'; padding-right: 5px;} 
+#special_events .event_item:not(.event_main) {padding: 0 30px; box-sizing: border-box;}
+#special_events .event_item:not(.event_main) img {width: 100%; filter: grayscale(100%);}
+#special_events .event_item_etc {margin: 0 -30px;}
+#special_events .event_main h3 {margin-top: 40px;}
+#special_events .event_item_etc h3 {font-size: 18px; font-weight: 700; color: #111;}
+#special_events .event_item:not(.event_main) .event_item_etc h3 {margin-top: 20px; font-size: 16px; opacity: .4;}
+#special_events .event_item_etc p {margin-top: 20px; line-height: 24px; letter-spacing: .04em; font-size: 14px; color: #111; white-space: pre-wrap; opacity: .4;} 
+#special_events .event_item_etc p:last-child {opacity: 1;}
+#special_events .event_item:not(.event_main) .event_item_etc p, #special_events .event_item:not(.event_main) a .event_item_bg {opacity: 0;}
+#special_events .event_button {position: absolute; width: 130px; height: 130px; top: 635px; padding: 0 40px; box-sizing: border-box; cursor: pointer; transition: 0.4s;}
+#special_events .event_prev {left: calc(50% - 380px); background: #af6e52;}
+#special_events .event_next {left: calc(50% + 250px); background: #242a46;}
+#special_events .event_button:hover.event_prev {background: #c7886b;}
+#special_events .event_button:hover.event_next {background: #3b405b;}
+#special_events .event_button span {display: block; position: relative; width: 100%; height: 100%;}
+#special_events .event_button span::before {width: 50px;}
+#special_events .event_prev span::before {left: 0;}
+#special_events .event_next span::before {right: 0;}
+#special_events .event_button span::after {width: 24px; margin-top: -9px;}
+#special_events .event_prev span::after {left: 0; margin-left: -3px; transform: rotate(-45deg);}
+#special_events .event_next span::after {right: 0; margin-right: -3px; transform: rotate(45deg);}
+#special_events .event_button span::before, #special_events .event_button span::after {display: block; position: absolute; content: ''; height: 1px; top: 50%; background: #fff; transition: .2s;}
+#special_events .event_button:hover.event_prev span::before, #special_events .event_button:hover.event_prev span::after {left: -5px;}
+#special_events .event_button:hover.event_next span::before, #special_events .event_button:hover.event_next span::after {right: -5px;}
+
+/* FOOTER */
+footer {background: #131315;}
+footer nav {display: block; width: 100%; height: 135px; border-bottom: 1px solid #212123; text-align: center;}
+footer nav .banner_wrap {display: inline-block; width: 1240px; height: 130px; box-sizing: border-box;}
+footer nav .banner_wrap a.banner_hotel {float: left; width: 220px; height: 130px; background-repeat: no-repeat; background-position: 50%; border-right: 1px solid #212123; box-sizing: border-box; transition: .4s;}
+footer nav .banner_wrap a.banner_Seoul_Dragon_City {width: 360px; background-image: url(images/logo_seoul_dragon_city.png); border-left: 1px solid #212123;}
+footer nav .banner_wrap a.banner_Seoul_Dragon_City:hover {background-image: url(images/logo_seoul_dragon_city_on.png);}
+footer nav .banner_wrap a.banner_Grand_Mercure {background-image: url(images/logo_grand_mercure.png);}
+footer nav .banner_wrap a.banner_Grand_Mercure:hover {background-image: url(images/logo_grand_mercure_on.png);}
+footer nav .banner_wrap a.banner_Novotel_Suites {background-image: url(images/logo_novotel_suites.png);}
+footer nav .banner_wrap a.banner_Novotel_Suites:hover {background-image: url(images/logo_novotel_suites_on.png);}
+footer nav .banner_wrap a.banner_Novotel {background-image: url(images/logo_novotel.png);}
+footer nav .banner_wrap a.banner_Novotel:hover {background-image: url(images/logo_novotel_on.png);}
+footer nav .banner_wrap a.banner_Ibis_Styles {background-image: url(images/logo_ibis.png);}
+footer nav .banner_wrap a.banner_Ibis_Styles:hover {background-image: url(images/logo_ibis_on.png);}
+footer nav .banner_wrap a span {display: block;}
+footer .footer_container {width: 1200px; margin: 0 auto; padding: 50px 0;}
+footer .organization {float: left;}
+footer .organization .organization_menu ul {margin: 0 -20px;}
+footer .organization .organization_menu ul li {float: left; position: relative;}
+footer .organization .organization_menu ul li a {margin: 0px 20px;}
+footer .organization .organization_menu ul li a:hover {color: #bb9f92;}
+footer .organization .organization_menu ul li:not(:first-child) a::before {position: absolute; content: ''; width: 1px; height: 100%; left: 0; top: 0; background: #494848;}
+footer .organization .organization_info {padding-top: 40px;}
+footer .organization .organization_info p {line-height: 28px; color: #3d3d3d;}
+footer .footer_container .footer_sns {float: right; width: 650px; height: 170px; margin-right: -90px;}
+footer .footer_container .footer_sns h4 {padding-bottom: 60px; letter-spacing: 1px; font-size: 16px; font-weight: 300; color: #bb9f92;}
+footer .footer_container .footer_sns .sns_dl {display: inline-block; position: relative; max-width: 360px; min-height: 90px; padding-left: 50px; vertical-align: top;}
+footer .footer_container .footer_sns .sns_title {position: absolute; width: 50px; height: 100%; left: 0; top: 0; background-repeat: no-repeat;}
+footer .footer_container .footer_sns .instagram {background-image: url(images/icon_sns_instagram.png);}
+footer .footer_container .footer_sns .facebook {background-image: url(images/icon_sns_facebook.png);}
+footer .footer_container .footer_sns .sns_title span::after {position: absolute; content: ''; width: 1px; height: calc(100% - 35px); left: 10px; bottom: 0; background: #494848;}
+footer .footer_container .footer_sns .sns_dl dd {float: left; min-width: 180px; margin-bottom: 18px;}
+footer .footer_container .footer_sns .sns_dl dd a {font-size: 16px; color: #5f5f60;}
+footer .footer_container .footer_sns .sns_dl dd a:hover {border-bottom: 1px solid #5f5f60;}
+
+/* MEDIAQUERY */
+@media (max-width: 1400px){
+    .main_slide {width: calc(100% - 90px); left: 90px;}
+    .main_slide .pager .pager_Seoul_Dragon_City {background-size: auto 1vw;}
+    main {width: calc(100% - 90px); padding-left: 90px;}
+    #membership .membership_button span {display: none;}
+    #special_events .event_item:not(.event_main) .event_item_etc h3 {display: none;}
+    footer nav .banner_wrap {width: calc(100% - 90px); margin-left: 90px;}
+    footer nav .banner_wrap a.banner_hotel {width: 18%}
+    footer nav .banner_wrap a.banner_Seoul_Dragon_City {width: 28%}
+    footer .footer_container {width: calc(100% - 90px); padding: 50px 150px;}
+    footer .organization {float: none; width: 650px; margin: 0 auto;}
+    footer .footer_container .footer_sns {float: none; margin: 0 auto; padding-top: 50px;}
+}
+
+@media (max-width: 1023px){
+    .main_slide .pager {display: none;}
+    #membership .membership_card .card_left {z-index: 3; transform: translateX(calc(-50% - 30px)); transition: 1.25s; transition-delay: .7s;}
+    #special_events .event_button {width: 100px; height: 70px; transition: 0.4s;}
+    #special_events .event_prev {left: calc(50% - 320px); background: #af6e52;}
+    #special_events .event_next {left: calc(50% + 220px); background: #242a46;}
+    #special_events .event_prev span::before, #special_events .event_prev span::after {left: -10px;}
+    #special_events .event_next span::before, #special_events .event_next span::after {right: -10px;}
+    #special_events .event_button:hover.event_prev span::before, #special_events .event_button:hover.event_prev span::after {left: -15px;}
+    #special_events .event_button:hover.event_next span::before, #special_events .event_button:hover.event_next span::after {right: -15px;}
+    footer nav {display: none;}
+}
+
+@media (max-width: 896px){
+    .main_slide {width: 100%; left: 0;}
+    .header_scroll {width: 100%; height: 90px;}
+    .header_scroll .logo {float: left; border-bottom: none;}
+    .header_scroll .menu_etc {float: none;}
+    .header_scroll .menu_etc li:not(.menu_side_open) {float: left; border-right: 1px solid #29292f; border-bottom: none;}
+    .header_scroll .menu_etc li.menu_side_open {display: none;}
+    .header_scroll .menu_etc li.menu_button {float: right; position: static; top: 0;}
+    .header_scroll .menu_etc li.top {display: none;}
+    .header_menu_open .menu_main {width: 100%; left: 0; top: 90px; border-top: 1px solid #29292f;}
+    .header_menu_open .menu_main > ul {margin: 100px 100px 150px;}
+    .header_menu_open .menu_main > ul > li {float: none; margin: 0 0 60px 0;}
+    main {width: 100%; padding: 0;}
+    #special_events .event_button {top: 450px;}
+    #special_events .event_prev {left: calc(50% - 220px);}
+    #special_events .event_next {left: calc(50% + 120px);}
+    footer .footer_container {width: 100%; padding: 50px 50px;}
+    footer .organization {width: 90%; margin: 0;}
+    footer .organization .organization_menu ul li a {margin: 0 10px; font-size: 2vw;}
+    footer .footer_container .footer_sns .sns_dl {display: block; margin-bottom: 50px;}
+}
